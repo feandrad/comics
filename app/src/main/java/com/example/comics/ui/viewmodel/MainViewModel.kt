@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
         loadComics()
     }
 
-    private fun loadComics() {
+    fun loadComics() {
         viewModelScope.launch {
             _uiState.value = ComicsUiState.Loading
             getComicsUseCase().onSuccess { comics ->
