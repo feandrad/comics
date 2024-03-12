@@ -1,8 +1,5 @@
 package com.example.comics.data
 
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
 class ComicRepository (private val comicsApi: ComicsApi) {
 
     suspend fun getComics(): Result<GetComicResponse> {
