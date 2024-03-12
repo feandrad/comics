@@ -1,9 +1,10 @@
 package com.example.comics.presenter
 
 import com.example.comics.CoroutinesTestRule
-import com.example.comics.repository.DataModel
-import com.example.comics.repository.ItemModel
-import com.example.comics.view.IView
+import com.example.comics.data.ComicData
+import com.example.comics.data.GetComicResponse
+import com.example.comics.legacy.presenter.Presenter
+import com.example.comics.legacy.view.IView
 import io.mockk.called
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -39,7 +40,7 @@ class PresenterTest {
 
     @Test
     fun `when execute setupList`() = runBlocking {
-        presenter.setupList(ItemModel(data = DataModel(results = listOf())))
+        presenter.setupList(GetComicResponse(data = ComicData(results = listOf())))
 
         coVerify(exactly = 1) { iView.viewList(any()) }
         verify { iView.error() wasNot called }
